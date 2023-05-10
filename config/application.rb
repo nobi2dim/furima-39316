@@ -17,3 +17,5 @@ module Furima39316
     # the framework and any gems in your application.
   end
 end
+
+# Faker::Config.locale = :ja
