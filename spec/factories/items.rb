@@ -9,5 +9,9 @@ FactoryBot.define do
     sender_id    { 2 }
     condition_id { 2 }
     association :user
+
+    after(:build) do |item|
+      item.image.attach(io: File.open('app/assets/images/test.png'), filename: 'test.png')
+    end
   end
 end
