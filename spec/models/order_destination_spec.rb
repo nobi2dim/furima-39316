@@ -10,7 +10,7 @@ RSpec.describe OrderDestination, type: :model do
     end
 
     context '購入できるとき' do
-      it 'post_code、sender_id、city、block、building、phone_numberが存在すれば購入できる' do
+      it 'post_code、sender_id、city、block、building、phone_number,tokenが存在すれば購入できる' do
         expect(@order_destination).to be_valid
       end
       it 'buildingは空でも購入できる' do
@@ -85,6 +85,12 @@ RSpec.describe OrderDestination, type: :model do
         @order_destination.item_id = nil
         @order_destination.valid?
         expect(@order_destination.errors.full_messages).to include("Item can't be blank")
+      end
+
+      it "tokenが空では購入できない" do
+        @order_destination.token = nil
+        @order_destination.valid?
+        expect(@order_destination.errors.full_messages).to include("Token can't be blank")
       end
     end
   end
