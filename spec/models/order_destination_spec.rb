@@ -3,10 +3,10 @@ require 'rails_helper'
 RSpec.describe OrderDestination, type: :model do
   describe '商品購入機能' do
     before do
-    @user = FactoryBot.create(:user)
-    @item = FactoryBot.create(:item)
-    @order_destination = FactoryBot.build(:order_destination, user_id: @user.id, item_id: @item.id)
-    sleep 0.1
+      @user = FactoryBot.create(:user)
+      @item = FactoryBot.create(:item)
+      @order_destination = FactoryBot.build(:order_destination, user_id: @user.id, item_id: @item.id)
+      sleep 0.1
     end
 
     context '購入できるとき' do
@@ -37,19 +37,19 @@ RSpec.describe OrderDestination, type: :model do
       end
 
       it 'cityが空では購入できない' do
-        @order_destination.city = ""
+        @order_destination.city = ''
         @order_destination.valid?
         expect(@order_destination.errors.full_messages).to include("City can't be blank")
       end
 
       it 'blockが空では購入できない' do
-        @order_destination.block = ""
+        @order_destination.block = ''
         @order_destination.valid?
         expect(@order_destination.errors.full_messages).to include("Block can't be blank")
       end
 
       it 'phone_numberが空では購入できない' do
-        @order_destination.phone_number = ""
+        @order_destination.phone_number = ''
         @order_destination.valid?
         expect(@order_destination.errors.full_messages).to include("Phone number can't be blank")
       end
@@ -74,7 +74,6 @@ RSpec.describe OrderDestination, type: :model do
         expect(@order_destination.errors.full_messages).to include('Phone number is invalid.')
       end
 
-
       it 'userが紐付いていないと購入できない' do
         @order_destination.user_id = nil
         @order_destination.valid?
@@ -87,7 +86,7 @@ RSpec.describe OrderDestination, type: :model do
         expect(@order_destination.errors.full_messages).to include("Item can't be blank")
       end
 
-      it "tokenが空では購入できない" do
+      it 'tokenが空では購入できない' do
         @order_destination.token = nil
         @order_destination.valid?
         expect(@order_destination.errors.full_messages).to include("Token can't be blank")
