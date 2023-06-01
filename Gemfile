@@ -89,5 +89,3 @@ group :production do
 end
 
 gem 'mail', '2.7.1'
-
-gem 'date', '~> 3.3', '>= 3.3.3'
