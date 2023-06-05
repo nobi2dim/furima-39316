@@ -8,8 +8,8 @@ local:
 
 amazon:
  service: S3
- region: ap-southeast-2
- bucket: furima-39316
+ region: ap-northeast-1
+ bucket: furima-39316aws
  access_key_id: <%= ENV['AWS_ACCESS_KEY_ID'] %>
  secret_access_key:  <%= ENV['AWS_SECRET_ACCESS_KEY'] %>
 

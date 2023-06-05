@@ -88,4 +88,6 @@ group :production do
   gem 'unicorn', '5.4.1'
 end
 
-gem 'mail', '2.7.1'
+# gem 'mail', '2.7.1' 後で復活
+
+gem 'date' #後で削除
